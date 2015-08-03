@@ -1,6 +1,6 @@
 package com.yxy.algorithms.max.sum;
 /**
- * @author xianyiye
+ * @author xianyi ye
  * @Date 8/1/2015
  * 
  * Question:
