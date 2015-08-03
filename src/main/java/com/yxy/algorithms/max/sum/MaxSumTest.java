@@ -1,0 +1,65 @@
+package com.yxy.algorithms.max.sum;
+/**
+ * @author xianyiye
+ * @Date 8/1/2015
+ * 
+ * Question:
+ * The maximum subarray problem is the task of finding the contiguous subarray 
+ * within a one-dimensional array of numbers (containing at least one positive number) 
+ * which has the largest sum. 
+ * For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; 
+ * the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6.
+ * 
+ * T(n) = O(nlogn)
+ *
+ */
+public class MaxSumTest {
+	
+	public static int maxSum(int[] nums, int leftPos, int rightPos){
+		int sum =0 ;
+		if(leftPos==rightPos){
+			sum = nums[leftPos] ;
+		}else{
+			int centerPos = (leftPos+rightPos)/2 ;
+			int leftMaxSum = maxSum(nums, leftPos, centerPos) ;
+			int rightMaxSum = maxSum(nums, centerPos+1, rightPos) ;
+			
+			int s1 = 0 ;
+			int leftSum = 0 ;
+			for(int i=centerPos; i>=leftPos; i--){
+				leftSum += nums[i] ;
+				if(leftSum>s1){
+					s1 = leftSum ;
+				}
+			}
+			
+			int s2 = 0 ;
+			int rightSum = 0 ;
+			for(int j=centerPos+1 ; j<=rightPos; j++){
+				rightSum += nums[j] ;
+				if(rightSum>s2){
+					s2 = rightSum ;
+				}
+			}
+			
+			sum = s1+s2 ;
+			if(sum<leftMaxSum){
+				sum = leftMaxSum ;
+			}
+			if(sum<rightMaxSum){
+				sum = rightMaxSum ;
+			}
+		}
+		
+		return sum ;
+	}
+	
+
+	public static void main(String[] args) {
+//		int[] nums = {1, -2, 3, 10, -4, 7, 2, -5} ;
+		int[] nums = {-2,11,-4,13,-5,-2} ;
+		System.out.println(maxSum(nums,0,nums.length-1)) ;
+
+	}
+
+}
