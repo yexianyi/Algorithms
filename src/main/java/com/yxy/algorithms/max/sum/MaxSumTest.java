@@ -10,6 +10,23 @@ package com.yxy.algorithms.max.sum;
  * For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; 
  * the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6.
  * 
+ * Solution:
+ * Following program is based on Divide-and-conquer.
+ * Suppose that an integer array is {A,B,C,D,E,F}.
+ * We can divide the arry into 2 parts, {A,B,C} and {D,E,F}.
+ * The max sum value only can be obtained by following 3 cases:
+ * 1. Max sum of {A,B,C}
+ * 2. Max sum of {D,E,F}
+ * 3. Max sum of {..,C,D,..}
+ * 
+ * For first 2 cases, the max sum can be got easily. But for 3), two loop statements
+ * must be invoked from reverse direction. One is calling from CENTER to LEFT, another 
+ * is calling from CENTER+1 to RIGHT. Only in this way, both C and D can be included 
+ * in the array {..,C,D,..}.
+ * 
+ * Once we get above 3 max sum values, the max sum eventually can be get through
+ * compare these 3 values.
+ * 
  * T(n) = O(nlogn)
  *
  */
