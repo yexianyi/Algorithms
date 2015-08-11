@@ -47,6 +47,10 @@ public class MaxMSumTest {
 	 * n-m+i: the starter of the index of K.
 	 * 
 	 * T(n) = O(m*n^2)
+	 * 
+	 * Reference:
+	 * http://www.haodaima.net/art/2006906
+	 * 
 	 */
 	
 	public static int MaxMSum(int nums[], int m){
