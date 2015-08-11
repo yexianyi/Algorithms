@@ -10,17 +10,17 @@ package com.yxy.algorithms.bst;
  * Solution:
  * Given that e[k,k] = sum[dept(k)+p(k)] = dept(k)+p(k) = 0 + p(k) ;
  * So that,   e[i,j] = sum[dept(k)+p(k)] (i<=k<=j)
- * 				     = dept(i)+p(i)+dept(i+1)+p(i+1)+...+dept(j)+p(j)
+ *                   = dept(i)+p(i)+dept(i+1)+p(i+1)+...+dept(j)+p(j)
  * 
  * Assume that "r" is the root node of the nodes from "i" to "j",
  * so that e[r,r] = sum[dept(r)+p(r)] = 0 + p(r) = p(r) ;
- * 		   e[i,j] = dept(i)+p(i)+dept(i+1)+p(i+1)+...+dept(r-1)+p(r-1)+dept(r)+p(r)+dept(r+1)+p(r+1)+...+dept(j)+p(j)
- * 				  = sum[dept(k)+p(k)]+w(k) + dept(r)+p(r) + sum[dept(k)+p(k)]+w(k)
- * 					     (i<=k<=r-1)						 	(r+1<=k<=j)			  
- *				  = e[i,r-1]+w[i,r-1]+dept(r)+p(r)+e[r+1,j]+w[r+1,j]	
- * 				  = e[i,r-1]+w[i,r-1]+0+p(r)+e[r+1,j]+w[r+1,j]	
- * 				  = e[i,r-1]+e[r+1,j]+w[i,r-1]+w[r+1,j]+p(r)
- * 				  = e[i,r-1]+e[r+1,j]+w[i,j]
+ *         e[i,j] = dept(i)+p(i)+dept(i+1)+p(i+1)+...+dept(r-1)+p(r-1)+dept(r)+p(r)+dept(r+1)+p(r+1)+...+dept(j)+p(j)
+ * 		  = sum[dept(k)+p(k)]+w(k) + dept(r)+p(r) + sum[dept(k)+p(k)]+w(k)
+ * 			     (i<=k<=r-1)		 	(r+1<=k<=j)			  
+ *		  = e[i,r-1]+w[i,r-1]+dept(r)+p(r)+e[r+1,j]+w[r+1,j]	
+ * 		  = e[i,r-1]+w[i,r-1]+0+p(r)+e[r+1,j]+w[r+1,j]	
+ * 		  = e[i,r-1]+e[r+1,j]+w[i,r-1]+w[r+1,j]+p(r)
+ * 		  = e[i,r-1]+e[r+1,j]+w[i,j]
  * 
  * To find out which node is to be the best root of nodes, each of nodes must be tested.
  * Therefore, e[i,j] = min{e[i,r-1]+e[r+1,j]+w[i,j]} (i<=j), 
