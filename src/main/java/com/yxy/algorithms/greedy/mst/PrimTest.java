@@ -18,9 +18,15 @@ package com.yxy.algorithms.greedy.mst;
  * 
  * 
  * Solution:
- *
+ * 1. Iterate the graph[i][j] and find out the first number which is greater than ZERO, which means that the two vertexes from i to j are connected.
+ * 2. Consider i as the current vertex that is chose into the MST. 
+ * 3. Find out which vertexes are connected to existing vertexes in MST by iterating the position from graph[i][0] to graph[i][graph.length] whose number is greater than ZERO.
+ * 4. Choose the minimum weight of each edges as the distance of the vertex connects to existing vertexes in MST. Mark the distance on an array and set the distance as ZERO.  
+ * 5. Iterate the array to find out the minimum non-zero value and mark the seq of this array as the number of vertex needs to be search in next.
+ * 6. Mark above vertex as current vertex and repeat steps 3 to 6 until all the number of the array are ZERO.
+ * 7. Iterate MST to display each of edges.
  * 
- * Time complexity: 
+ * Time complexity: O(n^2)
  *
  *
  */
@@ -30,7 +36,7 @@ public class PrimTest {
 	public static int[] PrimMST(int[][] graph){
 		int[] edges = new int[graph.length-1] ;
 		int num = 0 ;
-		int[] vertexArray = new int[graph.length] ;
+		int[] vertexArray = new int[graph.length] ; //Store the distances of each vertex connect to MST. ZERO means current vertex has been chosen into MST.
 		for(int i=0; i<vertexArray.length; i++){
 			vertexArray[i] = Integer.MAX_VALUE ;
 		}
@@ -69,7 +75,7 @@ public class PrimTest {
 				}
 			}
 			
-			//reverse the searching direction
+			//reverse the searching direction, because the searching has already touch the bottom of the upper triangular matrix.
 			if(currVertex==graph.length-1){
 				for(int i=0; i<graph.length; i++){// Vertex J
 					if(graph[i][currVertex]==0){
