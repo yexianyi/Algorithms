@@ -10,22 +10,35 @@ package com.yxy.algorithms.climbing.stairs;
  * 2015/12/22
  */
 
-public class Solution {
+public class Solution3 {
 	
-	public static int climbStairs(int n) {
+	public static int climbStairs(int n){
 		if(n==1){
 			return 1 ;
 		}
-		else if(n==2){
+		
+		if(n==2){
 			return 2 ;
 		}
 		
-		return climbStairs(n-1) + climbStairs(n-2) ;
+		int a = 1 ;
+		int b = 2 ;
+		int ways = 0; 
+		for(int i=3; i<=n ; i++){
+			ways = a + b ;
+			a = b ;
+			b = ways ;
+		}
+		
+		return ways ;
 	}
+	
+	
 	
 
 	public static void main(String[] args) {
 		System.out.println(climbStairs(4));
+
 	}
 
 }
