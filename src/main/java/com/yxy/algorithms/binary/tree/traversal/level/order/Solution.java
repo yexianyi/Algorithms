@@ -1,9 +1,9 @@
-package com.yxy.algorithms.binary.tree.traversal.II.level.order;
+package com.yxy.algorithms.binary.tree.traversal.level.order;
 
 /**
- * 	107. Binary Tree Level Order Traversal II My Submissions Question
-	Total Accepted: 64140 Total Submissions: 198020 Difficulty: Easy
-	Given a binary tree, return the bottom-up level order traversal of its nodes' values. (ie, from left to right, level by level from leaf to root).
+ * 	102. Binary Tree Level Order Traversal My Submissions Question
+	Total Accepted: 81103 Total Submissions: 263181 Difficulty: Easy
+	Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
 	
 	For example:
 	Given binary tree {3,9,20,#,#,15,7},
@@ -12,15 +12,16 @@ package com.yxy.algorithms.binary.tree.traversal.II.level.order;
 	  9  20
 	    /  \
 	   15   7
-	return its bottom-up level order traversal as:
+	return its level order traversal as:
 	[
-	  [15,7],
+	  [3],
 	  [9,20],
-	  [3]
+	  [15,7]
 	]
  * @author xianyiye
- * 2015/12/29
+ * 2015/12/29	
  */
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +68,7 @@ public class Solution {
     		for(TreeNode node : nodes){
     			nums.add(node.val) ;
     		}
-    		list.add(nums) ;
+    		list.add(0,nums) ;
     	}
         
         
