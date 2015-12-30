@@ -1,4 +1,6 @@
-package com.yxy.algorithms.remove.duplicates.frm.sorted.list;
+package com.yxy.algorithms.linked.list.sorted.remove.duplicates;
+
+import com.yxy.algorithms.linked.list.ListNode;
 
 /**
  * 	83. Remove Duplicates from Sorted List My Submissions Question

@@ -1,4 +1,6 @@
-package com.yxy.algorithms.delete.linkedlist.node;
+package com.yxy.algorithms.linked.list.delete.node;
+
+import com.yxy.algorithms.linked.list.ListNode;
 
 /**
  * 

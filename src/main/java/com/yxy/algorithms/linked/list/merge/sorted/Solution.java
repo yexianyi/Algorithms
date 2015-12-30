@@ -1,4 +1,6 @@
-package com.yxy.algorithms.merge.sorted.linked.list;
+package com.yxy.algorithms.linked.list.merge.sorted;
+
+import com.yxy.algorithms.linked.list.ListNode;
 
 /**
  *  Merge Two Sorted Lists My Submissions Question

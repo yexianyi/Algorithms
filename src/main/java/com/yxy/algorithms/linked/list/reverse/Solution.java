@@ -1,4 +1,6 @@
-package com.yxy.algorithms.reverse.linked.list;
+package com.yxy.algorithms.linked.list.reverse;
+
+import com.yxy.algorithms.linked.list.ListNode;
 
 /**
  * 	206. Reverse Linked List My Submissions Question
