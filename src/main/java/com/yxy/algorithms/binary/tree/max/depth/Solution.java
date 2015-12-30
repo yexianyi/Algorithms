@@ -1,5 +1,7 @@
 package com.yxy.algorithms.binary.tree.max.depth;
 
+import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 
  * 	Maximum Depth of Binary Tree My Submissions Question

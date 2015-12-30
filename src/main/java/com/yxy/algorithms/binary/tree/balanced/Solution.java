@@ -1,4 +1,6 @@
-package com.yxy.algorithms.balanced.binary.tree;
+package com.yxy.algorithms.binary.tree.balanced;
+
+import com.yxy.algorithms.binary.tree.TreeNode;
 
 /**
  * 	110. Balanced Binary Tree My Submissions Question

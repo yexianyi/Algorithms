@@ -1,5 +1,7 @@
 package com.yxy.algorithms.binary.tree.lca;
 
+import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 
 	235. Lowest Common Ancestor of a Binary Search Tree

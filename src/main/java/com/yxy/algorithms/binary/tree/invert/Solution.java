@@ -1,5 +1,7 @@
 package com.yxy.algorithms.binary.tree.invert;
 
+import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 
 	Invert Binary Tree
