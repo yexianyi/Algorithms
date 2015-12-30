@@ -1,4 +1,4 @@
-package com.yxy.algorithms.lca.binary.tree;
+package com.yxy.algorithms.binary.tree.invert;
 
 public class TreeNode {
 

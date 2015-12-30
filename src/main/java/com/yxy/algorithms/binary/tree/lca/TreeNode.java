@@ -1,4 +1,4 @@
-package com.yxy.algorithms.max.depth.binary.tree;
+package com.yxy.algorithms.binary.tree.lca;
 
 public class TreeNode {
 

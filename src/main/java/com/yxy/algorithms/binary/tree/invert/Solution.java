@@ -1,4 +1,4 @@
-package com.yxy.algorithms.invert.binary.tree;
+package com.yxy.algorithms.binary.tree.invert;
 
 /**
  * 
