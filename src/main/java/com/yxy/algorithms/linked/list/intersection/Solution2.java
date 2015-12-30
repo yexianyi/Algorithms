@@ -2,31 +2,36 @@ package com.yxy.algorithms.linked.list.intersection;
 
 import com.yxy.algorithms.linked.list.ListNode;
 
-public class Solution {
+public class Solution2 {
 	
-	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-		if(headA==null || headB==null){
-			return null ;
-		}
-		ListNode head = headB ;
-		
-		while(headA!=null){
-			headB = head ;
-			while(headB!=null){
-				if(headA.val==headB.val){
-					return headA ;
-				}
-				headB = headB.next ;
-			}
-			
-			headA = headA.next ;
-		}
-		
-		return null ;
-        
+	public static ListNode  getIntersectionNode(ListNode headA, ListNode headB) {
+        int lA = length(headA);
+        int lB = length(headB);
+        int lmin = Math.min(lA, lB);
+        ListNode hA = headA;
+        ListNode hB = headB;
+
+        while(lA-- > lmin) hA = hA.next;
+        while(lB-- > lmin) hB = hB.next;
+        while(hA != null) {
+            if(hA == hB) return hA;
+            hA = hA.next;
+            hB = hB.next;
+        }
+
+        return null;
     }
-	
-	
+
+    public static int length(ListNode head) {
+        int len = 0;
+        ListNode node = head;
+        while(node != null) {
+            len++;
+            node = node.next;
+        }
+
+        return len;
+    }
 
 	public static void main(String[] args) {
 		ListNode node1 = new ListNode(1) ;
