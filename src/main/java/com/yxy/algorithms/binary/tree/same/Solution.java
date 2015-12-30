@@ -1,4 +1,6 @@
-package com.yxy.algorithms.same.binary.tree;
+package com.yxy.algorithms.binary.tree.same;
+
+import com.yxy.algorithms.binary.tree.TreeNode;
 
 /**
  * 	Same Tree My Submissions Question

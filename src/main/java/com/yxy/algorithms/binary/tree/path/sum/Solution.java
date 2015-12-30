@@ -1,4 +1,6 @@
-package com.yxy.algorithms.path.sum;
+package com.yxy.algorithms.binary.tree.path.sum;
+
+import com.yxy.algorithms.binary.tree.TreeNode;
 
 /**
  * 	112. Path Sum My Submissions Question
