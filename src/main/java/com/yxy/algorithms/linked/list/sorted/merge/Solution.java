@@ -1,4 +1,4 @@
-package com.yxy.algorithms.linked.list.merge.sorted;
+package com.yxy.algorithms.linked.list.sorted.merge;
 
 import com.yxy.algorithms.linked.list.ListNode;
 

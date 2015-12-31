@@ -1,4 +1,4 @@
-package com.yxy.algorithms.remove.duplicates.frm.sorted.array;
+package com.yxy.algorithms.sorted.array.remove.duplicates;
 
 /**
  *  Remove Duplicates from Sorted Array My Submissions Question
@@ -15,18 +15,22 @@ package com.yxy.algorithms.remove.duplicates.frm.sorted.array;
  * 2015/12/28
  */
 
-public class Solution3 {
+public class Solution2 {
 	
 	public static int removeDuplicates(int[] nums) {
-		int shiftCount = 0;
-        for(int i=0; i<nums.length-1; i++) {
-            if(nums[i]==nums[i+1]) {
-                shiftCount++;
-            } else if (shiftCount!=0) {
-                nums[i+1-shiftCount] = nums[i+1];
-            }
+        if(nums==null || nums.length<=1){
+        	return nums.length ;
         }
-        return nums.length-shiftCount;
+        
+        int i = 1; //iterator thru array
+        int j = 0; //current index
+        for (; i<nums.length; i++) { 
+            if (nums[i] != nums[j]) { //new number
+                j++; //move current index
+                nums[j] = nums[i]; //fill current index with new number
+            } 
+        }
+        return j+1;
     }
 
 	public static void main(String[] args) {
