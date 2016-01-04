@@ -40,14 +40,48 @@ public class Solution {
         //check each square
         int row = 0 ;
         int col = 0 ;
-        for(int i=row; i<=row+2 && row<=8; i++){
-        	for(int j=col; j<=col+2 && col<=8; j++){
-            	System.out.println(i+""+j);
-            }
-        	col+=2 ;
-        	row+=2 ;
-        	System.out.println() ;
+        
+        while(row!=8 && col!=8){
+        	while(col<=8){
+        		System.out.println(row+""+col);
+        		if((col+1)%3==0){
+        			col=3*(col/3) ;
+//        			if((row+1)%3==0){
+//        				col = 0 ;
+//        				row = 3*(row/3)  ;
+//        			}
+        			break ;
+        		}else{
+        			col++ ;
+        		}
+        	}
+        	
+        	if((row+1)%3==0){
+    			row=0 ;
+    			col += 3 ;
+    			System.out.println() ;
+    		}else{
+    			row++ ;
+    		}
+        	
         }
+        
+//        for(int i=row-2; i<=row && row<=8; i++){
+//        	for(int j=row-2; j<=row && col<=8; j++){
+//            	System.out.println(i+""+j);
+//            	
+//            	if(j>0 && (j+1)%3==0){
+//            		col+=3 ;
+//            		j = col ;
+//            	}
+//            	if(i>0 && (i+1)%3==0 && col==8){
+//            		row+=3 ;
+//            	}
+//            }
+        	
+        	
+//        	System.out.println() ;
+//        }
         
         
 		return true ;
