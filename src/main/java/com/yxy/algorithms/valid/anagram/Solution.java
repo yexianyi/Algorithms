@@ -5,12 +5,7 @@ package com.yxy.algorithms.valid.anagram;
 	Valid Anagram
 	 My Submissions 
 	Question 
-	
 	Total Accepted: 44614 Total Submissions: 113828 Difficulty: Easy 
-	
-	
-	
-	
 	
 	Given two strings s and t, write a function to determine if t is an anagram of s.
 	
@@ -21,7 +16,7 @@ package com.yxy.algorithms.valid.anagram;
 	Note:
 	 You may assume the string contains only lowercase alphabets.
 
- * @author Administrator
+ * @author Xianyi Ye
  * 2015/12/18
  */
 
