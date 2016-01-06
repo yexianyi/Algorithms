@@ -1,4 +1,4 @@
-package com.yxy.algorithms.contains.duplicate.II;
+package com.yxy.algorithms.array.contains.duplicate.II;
 
 /**
  * 	219. Contains Duplicate II My Submissions Question
@@ -11,13 +11,17 @@ package com.yxy.algorithms.contains.duplicate.II;
  * 2016/1/6
  */
 
-public class Solution2 {
+public class Solution {
 	
 	public static boolean containsNearbyDuplicate(int[] nums, int k) {
 		for(int i=0; i<nums.length; i++){
-			for(int j=i+1; j<nums.length && j<=i+k; j++){
+			for(int j=i+1; j<nums.length; j++){
 				if(nums[j]==nums[i]){
-					return true ;
+					if(j-i<=k){
+						return true ;
+					}
+				}else if(j-i>k){
+						break ;
 				}
 			}
 		}
@@ -26,7 +30,7 @@ public class Solution2 {
     }
 
 	public static void main(String[] args) {
-		System.out.println(containsNearbyDuplicate(new int[]{1}, 1));
+		System.out.println(containsNearbyDuplicate(new int[]{-1,-1}, 1));
 	}
 
 }

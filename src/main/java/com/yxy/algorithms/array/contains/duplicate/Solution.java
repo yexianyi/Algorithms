@@ -1,4 +1,4 @@
-package com.yxy.algorithms.contains.duplicate;
+package com.yxy.algorithms.array.contains.duplicate;
 
 /**
  * 

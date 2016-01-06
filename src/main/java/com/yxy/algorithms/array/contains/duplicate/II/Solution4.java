@@ -1,4 +1,4 @@
-package com.yxy.algorithms.contains.duplicate.II;
+package com.yxy.algorithms.array.contains.duplicate.II;
 
 import java.util.HashSet;
 import java.util.Set;
