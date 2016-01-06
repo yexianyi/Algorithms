@@ -1,5 +1,8 @@
 package com.yxy.algorithms.contains.duplicate.II;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 	219. Contains Duplicate II My Submissions Question
 	Total Accepted: 40044 Total Submissions: 141195 Difficulty: Easy
@@ -11,26 +14,20 @@ package com.yxy.algorithms.contains.duplicate.II;
  * 2016/1/6
  */
 
-public class Solution {
+public class Solution3 {
 	
 	public static boolean containsNearbyDuplicate(int[] nums, int k) {
-		for(int i=0; i<nums.length; i++){
-			for(int j=i+1; j<nums.length; j++){
-				if(nums[j]==nums[i]){
-					if(j-i<=k){
-						return true ;
-					}
-				}else if(j-i>k){
-						break ;
-				}
-			}
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; ++i) {
+			if (map.containsKey(nums[i]) && (i - map.get(nums[i])) <= k)
+				return true;
+			map.put(nums[i], i);
 		}
-		
 		return false;
     }
 
 	public static void main(String[] args) {
-		System.out.println(containsNearbyDuplicate(new int[]{-1,-1}, 1));
+		System.out.println(containsNearbyDuplicate(new int[]{1}, 1));
 	}
 
 }

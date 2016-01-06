@@ -1,5 +1,8 @@
 package com.yxy.algorithms.contains.duplicate.II;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 	219. Contains Duplicate II My Submissions Question
 	Total Accepted: 40044 Total Submissions: 141195 Difficulty: Easy
@@ -11,26 +14,30 @@ package com.yxy.algorithms.contains.duplicate.II;
  * 2016/1/6
  */
 
-public class Solution {
+public class Solution4 {
 	
 	public static boolean containsNearbyDuplicate(int[] nums, int k) {
-		for(int i=0; i<nums.length; i++){
-			for(int j=i+1; j<nums.length; j++){
-				if(nums[j]==nums[i]){
-					if(j-i<=k){
-						return true ;
-					}
-				}else if(j-i>k){
-						break ;
-				}
-			}
-		}
+		Set<Integer> set = new HashSet<Integer>();
+        for (int i=0; i<nums.length; i++) {
+            if(set.size()<=k) {
+                if (set.add(nums[i])==false){//already exist
+                	return true;
+                }
+            } else{
+                set.remove(nums[i-k-1]);
+                if (set.add(nums[i])==false) {
+                	return true;
+                }
+            }
+        }
 		
 		return false;
     }
 
 	public static void main(String[] args) {
 		System.out.println(containsNearbyDuplicate(new int[]{-1,-1}, 1));
+		System.out.println(containsNearbyDuplicate(new int[]{1,2,1}, 0));
+		System.out.println(containsNearbyDuplicate(new int[]{1,2,1}, 1));
 	}
 
 }
