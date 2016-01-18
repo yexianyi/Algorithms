@@ -7,13 +7,7 @@ package com.yxy.algorithms.excel.sheet.column.number;
 	Question 
 	
 	Total Accepted: 55875 Total Submissions: 143073 Difficulty: Easy 
-	
-	
-	
-	
-	
 	Related to question Excel Sheet Column Title
-	
 	Given a column title as appear in an Excel sheet, return its corresponding column number.
 	
 	For example:
@@ -25,7 +19,7 @@ package com.yxy.algorithms.excel.sheet.column.number;
 	    AA -> 27
 	    AB -> 28 
 
- * @author Administrator
+ * @author Xianyiye
  *	2015/12/19
  */
 
