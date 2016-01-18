@@ -1,4 +1,4 @@
-package com.yxy.algorithms.majority.lement;
+package com.yxy.algorithms.majority.element;
 
 /**
  * 
