@@ -1,4 +1,4 @@
-package com.yxy.algorithms.impl.with.stack.with.queue;
+package com.yxy.algorithms.stack.impl.with.queue;
 
 import java.util.LinkedList;
 import java.util.List;

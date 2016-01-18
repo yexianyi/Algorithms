@@ -1,4 +1,4 @@
-package com.yxy.algorithms.impl.queue.with.stack;
+package com.yxy.algorithms.queue.impl.with.stack;
 
 import java.util.ArrayList;
 import java.util.List;
