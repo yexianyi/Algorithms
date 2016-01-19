@@ -7,11 +7,6 @@ package com.yxy.algorithms.bits.add;
 	Question 
 	
 	Total Accepted: 69323 Total Submissions: 265819 Difficulty: Easy 
-	
-	
-	
-	
-	
 	Given two binary strings, return their sum (also a binary string). 
 	
 	For example,
