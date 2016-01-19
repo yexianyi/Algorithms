@@ -1,17 +1,17 @@
-package com.yxy.algorithms.first.bad.version;
+package com.yxy.algorithms.version.first.bad;
 
 import java.util.Random;
 
-public class Solution2 extends VersionControl{
+public class Solution extends VersionControl{
 	/* The isBadVersion API is defined in the parent class VersionControl.
     boolean isBadVersion(int version); */
 	public int firstBadVersion(int n) {
 		return isBadVersion(n, 1,n) ;
     }
 	
-	public int isBadVersion(int n, int low, int high){
+	public int isBadVersion(int n, long low, long high){
 		if(low<high){
-			int mid = generateInt(low, high) ;
+			long mid = (low+high)/2 ;
 			if(isBadVersion((int)mid)){
 				return isBadVersion(n, low, mid-1) ;
 			}else{
@@ -27,21 +27,19 @@ public class Solution2 extends VersionControl{
 			}
 		}
 	}
-	
-	private int generateInt(int min, int max){
-		Random random = new Random();
-		return random.nextInt(max)%(max-min+1) + min;
-		
-	}
 
 
 	public static void main(String[] args) {
-		Solution2 s = new Solution2() ;
+		Solution s = new Solution() ;
 //		System.out.println(s.firstBadVersion(100));
 //		System.out.println(s.firstBadVersion(3));
 //		System.out.println(s.firstBadVersion(2));
 		System.out.println(s.firstBadVersion(2126753390));
-	    
+		
+		 Random random = new Random();
+         for(int i = 0; i < 10;i++) {
+             System.out.println((int)(Math.random()*10));
+         }
 
 	}
 

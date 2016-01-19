@@ -1,4 +1,4 @@
-package com.yxy.algorithms.first.bad.version;
+package com.yxy.algorithms.version.first.bad;
 
 public class VersionControl {
 	boolean isBadVersion(int version){
