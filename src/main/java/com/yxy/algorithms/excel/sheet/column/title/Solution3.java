@@ -16,18 +16,16 @@ package com.yxy.algorithms.excel.sheet.column.title;
 	    28 -> AB 
  * @author xianyiye
  * 2016/1/19
-**/
-
-public class Solution2 {
+ */
+public class Solution3 {
 	
 	public static String convertToTitle(int n) {
-		StringBuilder sb = new StringBuilder();
-        while(n--!=0){
-            sb.append((char)(n%26+'A'));
-            n/=26;
-        }
-        return sb.length()==0?"A":sb.reverse().toString();
-        
+		// 0-25 -> A-Z, so n will dercrease by 1
+        n = n-1;
+        if(n<=25) 
+            return ""+(char)(n+65);
+        else
+            return convertToTitle(n/26)+""+(char)(n%26+65);
     }
 
 	public static void main(String[] args) {
