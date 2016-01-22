@@ -1,4 +1,4 @@
-package com.yxy.algorithms.array.single.num;
+package com.yxy.algorithms.array.single.num.I;
 
 /**
  * 	136. Single Number My Submissions Question

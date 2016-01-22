@@ -1,4 +1,6 @@
-package com.yxy.algorithms.array.single.num;
+package com.yxy.algorithms.array.single.num.I;
+
+import java.util.Arrays;
 
 /**
  * 	136. Single Number My Submissions Question
@@ -11,23 +13,18 @@ package com.yxy.algorithms.array.single.num;
  * 2016/1/22
  */
 
-public class Solution {
+public class Solution2 {
 	
 	public static int singleNumber(int[] nums) {
-		
-		for(int i=0; i<nums.length; i++){
-			boolean isFound = false ;
-			int j=0 ;
-			for(;j<nums.length; j++){
-				if(i!=j && nums[j]==nums[i]){
-					isFound = true ;
-					break ;
-				}
-			}
-			if(i!=j && !isFound){//not found
+		Arrays.sort(nums) ;
+		int i=0 ;
+		for(; i<nums.length; i+=2){
+			if(i==nums.length-1){
 				return nums[i] ;
 			}
-			
+			else if(nums[i]!=nums[i+1]){
+				return nums[i] ;
+			}
 		}
         
 		return -1 ;
