@@ -1,5 +1,16 @@
 package com.yxy.algorithms.array.single.num;
 
+/**
+ * 	136. Single Number My Submissions Question
+	Total Accepted: 109612 Total Submissions: 227843 Difficulty: Medium
+	Given an array of integers, every element appears twice except for one. Find that single one.
+	
+	Note:
+	Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+ * @author xianyiye
+ * 2016/1/22
+ */
+
 public class Solution4 {
 	
 	public static int singleNumber(int[] nums) {
