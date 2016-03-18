@@ -24,6 +24,35 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+					<groupId>com.mycila</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>2.11</version>
+					<configuration>
+						<header>license_header.ftl</header>
+						<properties>
+							<year>2016</year>
+							<owner>Xianyi Ye</owner>
+							<email>yexianyi@hotmail.com</email>
+						</properties>
+						<includes>
+							<include>src/main/java/**</include>
+							<include>src/test/java/**</include>
+						</includes>
+						<excludes>
+							<exclude>**/README</exclude>
+							<exclude>src/main/resources/**</exclude>
+							<exclude>src/test/resources/**</exclude>
+						</excludes>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>format</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 		</plugins>
 	</build>
 
