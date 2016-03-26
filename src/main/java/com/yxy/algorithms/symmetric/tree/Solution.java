@@ -19,6 +19,8 @@
  */
 package com.yxy.algorithms.symmetric.tree;
 
+import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 	101. Symmetric Tree My Submissions Question
 	Total Accepted: 85608 Total Submissions: 262025 Difficulty: Easy

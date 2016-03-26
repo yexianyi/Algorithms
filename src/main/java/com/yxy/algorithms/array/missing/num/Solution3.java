@@ -11,7 +11,7 @@ Given nums = [0, 1, 3] return 2.
 Note:
 Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
  * 
- * @author xianyiye
+ * @author Xianyi Ye
  * @Date 3/26/2016
  */
 public class Solution3 {
