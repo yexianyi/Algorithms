@@ -16,7 +16,7 @@ package com.yxy.algorithms.bst.unique.num;
 
  * @author xianyiye
  * @Date 03/28/2016
- * Copy from:
+ * Copied from:
  * https://leetcode.com/discuss/77023/math-solution
  */
 
