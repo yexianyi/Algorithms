@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.bst;
+package com.yxy.algorithms.bst.creation;
 /**
  * @author xianyi ye
  * @Date 8/11/2015
