@@ -1,9 +1,9 @@
 package com.yxy.algorithms.binary.tree.house.robber.III;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Point;
 
 import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 	337. House Robber III My Submissions QuestionEditorial Solution
 	Total Accepted: 5506 Total Submissions: 14911 Difficulty: Medium
@@ -27,59 +27,27 @@ import com.yxy.algorithms.binary.tree.TreeNode;
 	Maximum amount of money the thief can rob = 4 + 5 = 9.
  * @author xianyiye
  * @Date 03/31/2016
+ * Runtime：2ms
+ * Copied from:
+ * https://leetcode.com/discuss/92872/2ms-java-ac-o-n-solution
  */
 
-public class Solution {
-	private int max = 0 ;
+public class Solution4 {
 	
-	/**
-	 * This implementation is invalid!
-	 * @param root
-	 * @return
-	 */
 	public int rob(TreeNode root) {
-		List<Integer> weights = new ArrayList<Integer>() ;
-		if(root!=null){
-			calLevelWeights(root, weights, 0) ;
-			for(int i=0; i<weights.size(); i++){
-				calMaxSum(weights, i, 0) ;
-			}
-			
-		}
-		
-		return max ;
+        return robHelp(root).x;
     }
-
-
-	private void calLevelWeights(TreeNode node, List<Integer> weights, int kthLayer) {
-		if(node==null){
-			return ;
-		}
-		
-		if(weights.size()<kthLayer+1){
-			weights.add(0);
-		}
-		weights.set(kthLayer,weights.get(kthLayer)+node.val) ;
-		
-		calLevelWeights(node.left, weights, kthLayer+1) ;
-		calLevelWeights(node.right, weights, kthLayer+1) ;
-		
-	}
 	
-	private void calMaxSum(List<Integer> weights, int currIndex, int sum) {
-		if(currIndex<weights.size()){
-			sum += weights.get(currIndex) ;
-			if(sum>max){
-				max = sum ;
-			}
-			for(int i=currIndex+2; i<weights.size(); i++){
-				calMaxSum(weights, i, sum) ;
-			}
-		}
-		
-	}
+    public Point robHelp(TreeNode root) {
+        if (root == null) {
+            return new Point(0, 0);
+        }
+        
+        Point leftPoint = robHelp(root.left);
+        Point rightPoint = robHelp(root.right);
 
-
+        return new Point(Math.max(root.val + leftPoint.y + rightPoint.y, leftPoint.x + rightPoint.x), leftPoint.x + rightPoint.x);
+    }
 
 	public static void main(String[] args) {
 		//
@@ -103,7 +71,7 @@ public class Solution {
 		root.left.right = new TreeNode(3) ;
 		root.right.right = new TreeNode(1) ;
 		
-		System.out.println(new Solution().rob(root));
+		System.out.println(new Solution4().rob(root));
 
 	}
 

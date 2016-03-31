@@ -1,9 +1,10 @@
 package com.yxy.algorithms.binary.tree.house.robber.III;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.yxy.algorithms.binary.tree.TreeNode;
+
 /**
  * 	337. House Robber III My Submissions QuestionEditorial Solution
 	Total Accepted: 5506 Total Submissions: 14911 Difficulty: Medium
@@ -27,58 +28,38 @@ import com.yxy.algorithms.binary.tree.TreeNode;
 	Maximum amount of money the thief can rob = 4 + 5 = 9.
  * @author xianyiye
  * @Date 03/31/2016
+ * Runtime：7ms
+ * Copied from:
+ * https://leetcode.com/discuss/93873/java-concise-memoization-dp-solution-7ms
  */
 
-public class Solution {
-	private int max = 0 ;
+public class Solution3 {
 	
-	/**
-	 * This implementation is invalid!
-	 * @param root
-	 * @return
-	 */
-	public int rob(TreeNode root) {
-		List<Integer> weights = new ArrayList<Integer>() ;
-		if(root!=null){
-			calLevelWeights(root, weights, 0) ;
-			for(int i=0; i<weights.size(); i++){
-				calMaxSum(weights, i, 0) ;
-			}
-			
-		}
-		
-		return max ;
-    }
+	 private Map<TreeNode, Integer> memo = new HashMap<>();
 
+	    public int rob(TreeNode root) {
+	        if(root==null) return 0;
+	        if(root.left==null && root.right==null) return root.val;
+	        if(memo.containsKey(root)) {
+	        	return memo.get(root);
+	        }
 
-	private void calLevelWeights(TreeNode node, List<Integer> weights, int kthLayer) {
-		if(node==null){
-			return ;
-		}
-		
-		if(weights.size()<kthLayer+1){
-			weights.add(0);
-		}
-		weights.set(kthLayer,weights.get(kthLayer)+node.val) ;
-		
-		calLevelWeights(node.left, weights, kthLayer+1) ;
-		calLevelWeights(node.right, weights, kthLayer+1) ;
-		
-	}
-	
-	private void calMaxSum(List<Integer> weights, int currIndex, int sum) {
-		if(currIndex<weights.size()){
-			sum += weights.get(currIndex) ;
-			if(sum>max){
-				max = sum ;
-			}
-			for(int i=currIndex+2; i<weights.size(); i++){
-				calMaxSum(weights, i, sum) ;
-			}
-		}
-		
-	}
+	        //case 1
+	        int sum1 = root.val;
+	        if(root.left!=null){
+	            sum1 += rob(root.left.left) + rob(root.left.right);
+	        }
+	        if(root.right!=null){
+	            sum1 += rob(root.right.left) + rob(root.right.right);
+	        }
 
+	        //case 2
+	        int sum2 = rob(root.left) + rob(root.right);
+
+	        int sum = Math.max(sum1, sum2);
+	        memo.put(root, sum);
+	        return sum;
+	    }
 
 
 	public static void main(String[] args) {
@@ -103,7 +84,7 @@ public class Solution {
 		root.left.right = new TreeNode(3) ;
 		root.right.right = new TreeNode(1) ;
 		
-		System.out.println(new Solution().rob(root));
+		System.out.println(new Solution3().rob(root));
 
 	}
 
