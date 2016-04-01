@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.bst.creation;
+package com.yxy.algorithms.bst.creation.by.searching.percent;
 /**
  * @author xianyi ye
  * @Date 8/11/2015
