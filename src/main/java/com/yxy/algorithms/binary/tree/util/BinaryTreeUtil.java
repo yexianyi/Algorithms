@@ -1,5 +1,9 @@
 package com.yxy.algorithms.binary.tree.util;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 import com.yxy.algorithms.binary.tree.TreeNode;
 
 public final class BinaryTreeUtil {
@@ -43,15 +47,46 @@ public final class BinaryTreeUtil {
 	 * @param root node
 	 */
 	public static void print(TreeNode root){
+		Stack<List<TreeNode>> stack = new Stack<List<TreeNode>>() ;
+		List<TreeNode> list = new ArrayList<TreeNode>() ;
+		list.add(root) ;
+		stack.push(list) ;
 		
+		while(!stack.isEmpty()){
+			System.out.println();
+			
+			list = stack.pop() ;
+			boolean hasNotNullNode = false ;
+			for(TreeNode node : list){
+				if(node!=null){
+					hasNotNullNode = true ;
+					break ;
+				}
+			}
+			
+			if(hasNotNullNode){
+				List<TreeNode> newList = new ArrayList<TreeNode>() ;
+				for(TreeNode node:list){
+					if(node==null){
+						System.out.print(" null");
+					}else{
+						System.out.print(" "+node.val);
+						newList.add(node.left) ;
+						newList.add(node.right) ;
+					}
+				}
+				stack.push(newList) ;
+			}
+			
+		}
 	}
 	
 
 	public static void main(String[] args) {
-		Integer[] nodes = {0,1,2,3,4,null,null,5} ;
+		Integer[] nodes = {0} ;
 		TreeNode root = create(nodes) ;
 		
-		System.out.println(root);
+		print(root);
 
 	}
 
