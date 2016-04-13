@@ -53,8 +53,6 @@ public final class BinaryTreeUtil {
 		stack.push(list) ;
 		
 		while(!stack.isEmpty()){
-			System.out.println();
-			
 			list = stack.pop() ;
 			boolean hasNotNullNode = false ;
 			for(TreeNode node : list){
@@ -77,17 +75,17 @@ public final class BinaryTreeUtil {
 				}
 				stack.push(newList) ;
 			}
-			
+			System.out.println();
 		}
 	}
 	
 
-	public static void main(String[] args) {
-		Integer[] nodes = {0} ;
-		TreeNode root = create(nodes) ;
-		
-		print(root);
-
-	}
+//	public static void main(String[] args) {
+//		Integer[] nodes = {0} ;
+//		TreeNode root = create(nodes) ;
+//		
+//		print(root);
+//
+//	}
 
 }
