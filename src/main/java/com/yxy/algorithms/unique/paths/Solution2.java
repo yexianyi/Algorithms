@@ -14,6 +14,8 @@ package com.yxy.algorithms.unique.paths;
 	Note: m and n will be at most 100.
  * @author xianyiye
  * @date 04/18/2016
+ * Copy from:
+ * https://leetcode.com/discuss/94614/sharing-my-0ms-java-solution-with-detailed-exploration
  */
 
 public class Solution2 {
