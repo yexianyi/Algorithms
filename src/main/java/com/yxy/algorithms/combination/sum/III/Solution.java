@@ -8,37 +8,16 @@ public class Solution {
 	//traversing
 	public static List<List<Integer>> combinationSum3(int k, int n) {
         
-        int start = 1 ;
-        int[] nums = {0,1,2,3,4,5,6,7,8,9} ;
+        int[] occupy = new int[10] ;
+        int[] combinations = new int[k] ;
+        
+        for(int i=0 ; i<k; i++){
+        	combinations[i] = i+1 ;
+        }
         
         List<List<Integer>> results = new ArrayList<List<Integer>>() ;
         
-        while(start<=9){
-        	List<Integer> list = new ArrayList<Integer>() ;
-        	int sum = 0;
-        	
-         	for(int count=0, j=start; count<=k && j<=9; j++){
-         		sum += nums[j] ;
-         		count++ ;
-         		if(sum<n){
-         			if(count==k){
-         				count-- ;
-         				sum -= nums[j] ;
-         				continue ;
-         			}else{
-         				list.add(nums[j]) ;
-         			}
-         		}
-         		
-         		if(sum==n && count==k){
-         			list.add(nums[j]) ;
-         			results.add(list) ;
-         			break ;
-         		}
-         		
-         	}
-         	start++ ;
-        }//end while
+      
        
 		return results ;
     }
