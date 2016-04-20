@@ -2,6 +2,7 @@ package com.yxy.algorithms.combination.sum.III;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * 216. Combination Sum III   My Submissions QuestionEditorial Solution
 	Total Accepted: 30148 Total Submissions: 84730 Difficulty: Medium
@@ -29,60 +30,38 @@ import java.util.List;
  * @author xianyiye
  * @Date 20/04/2016
  */
-public class Solution {
 
-	//traversing
+public class Solution2 {
+
+	//Recursion
 	public static List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> results = new ArrayList<List<Integer>>() ;
-        int[] nums = {1,2,3,4,5,6,7,8,9} ;
-        long min = 0;
-        long max = 0 ;
+        List<Integer> currList = new ArrayList<Integer>() ;
         
-        for(int i=0; i<k ; i++){
-        	min = (long) (min + nums[i]*Math.pow(10, k-i-1)) ;
-        	max = (long) (max + nums[9-k+i]*Math.pow(10, k-i-1)) ;
-        }
-        
-//        System.out.println(min);
-//        System.out.println(max);
-        
-        for(long i=min; i<=max; i++){
-        	List<Integer> combinations = new ArrayList<Integer>() ;
-        	long num = i ;
-        	int preNum = -1 ;
-        	boolean isValid = true ;
-        	
-        	while(num>0){
-        		int digital = (int) (num%10) ;
-        		num /= 10 ;
-        		
-        		if(digital<preNum || preNum==-1){
-        			preNum = digital ;
-        			combinations.add(0, digital); ;
-        		}else{
-        			isValid = false ;
-        			break ;
-        		}
-        	}
-        	
-        	if(!isValid){
-        		continue ;
-        	}
-        	
-        	//calculate sum
-        	int sum = 0;
-        	for(int number : combinations){
-        		sum += number ;
-        	}
-        	
-        	if(sum==n){
-        		results.add(combinations) ;
-        	}
-        	
-        }
+        combination(k, n, 1, results, currList) ;
         
 		return results ;
     }
+	
+	public static void combination(int k, int n, int start, List<List<Integer>> results, List<Integer> currList){
+		if (n<0 || currList.size() > k) { //n<0 is very crucial for the performance
+            return;
+        }
+		
+		if(currList.size()==k && n==0){
+			results.add(new ArrayList<Integer>(currList)) ;
+			return ;
+		}
+		
+		
+		for(int i=start; i<=9; i++){
+			currList.add(i) ;
+			combination(k, n-i, i+1, results, currList) ;
+			currList.remove(currList.size()-1) ;
+		}
+		
+	}
+	
 	
 	
 	public static void showResults(List<List<Integer>> results){
@@ -100,8 +79,8 @@ public class Solution {
 		List<List<Integer>> results = combinationSum3(3,7) ;
 		showResults(results) ;
 		
-		results = combinationSum3(3,9) ;
-		showResults(results) ;
+//		results = combinationSum3(3,9) ;
+//		showResults(results) ;
 		
 	}
 
