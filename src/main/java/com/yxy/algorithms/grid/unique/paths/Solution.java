@@ -1,4 +1,4 @@
-package com.yxy.algorithms.unique.paths;
+package com.yxy.algorithms.grid.unique.paths;
 /**
  * 	62. Unique Paths   My Submissions QuestionEditorial Solution
 	Total Accepted: 85178 Total Submissions: 235795 Difficulty: Medium
