@@ -1,4 +1,4 @@
-package com.yxy.algorithms.generate.parentheses;
+package com.yxy.algorithms.parentheses.generate;
 
 import java.util.ArrayList;
 import java.util.List;
