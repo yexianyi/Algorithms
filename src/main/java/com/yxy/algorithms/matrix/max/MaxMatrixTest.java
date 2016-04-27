@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.max.matrix;
+package com.yxy.algorithms.matrix.max;
 
 import com.yxy.algorithms.max.sum.MaxSumTest_DP;
 /**
