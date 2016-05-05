@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.ugly.number;
+package com.yxy.algorithms.numbers.ugly.num;
 
 /**
  * 263. Ugly Number My Submissions Question
