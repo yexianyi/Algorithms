@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.sorted.array.merge;
+package com.yxy.algorithms.array.sorted.merge;
 
 /**
  * 	88. Merge Sorted Array My Submissions Question
@@ -30,22 +30,56 @@ package com.yxy.algorithms.sorted.array.merge;
  * 2015/12/31
  */
 
-public class Solution4 {
+public class Solution2 {
 	
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {
-		int i = m-1, j = n-1, k = m+n-1;
-	    while (i>=0 && j>=0) {
-	         nums1[k--] = nums1[i]>nums2[j]?nums1[i--]:nums2[j--];
-	    }
-	    while (i==-1 && j>=0) 
-	        nums1[j] = nums2[j--];
-
+		if(nums2.length == 0){
+			return ;
+		}
+		
+		if(nums1.length==1 && nums1[0] ==0){
+			nums1[0] = nums2[0] ;
+			return ;
+		}
+		
+		
+       int p1 = 0 ;
+       int p2 = 0 ;
+       
+       while(nums1[p1]<nums2[p2] && p1<m){
+    	   p1++ ;
+       }
+       
+       if(p1>0){
+    	   p1-- ;
+       }
+       
+       while(p1<m && p2<n){
+    	   if(nums1[p1]>=nums2[p2]){
+    		   for(int i=m; i>p1;i--){
+    			   nums1[i] = nums1[i-1] ;
+    		   }
+    		   nums1[p1++] = nums2[p2++] ;
+    		   m++ ;
+    	   }else{
+    		   p1++ ;
+    	   }
+    	   
+       }
+       
+       while(p2<n){
+    	   nums1[p1++] = nums2[p2++] ;
+       }
+      
+       
     }
 
 	public static void main(String[] args) {
-		int[] nums1 = {1,3,5,7,9,0,0,0,0,0,0,0,0,0} ;
-		int[] nums2 = {2,3,4,6,8,10,12,14,16} ;
-		merge(nums1, 5,nums2, 9) ;
+//		int[] nums1 = {1,3,5,7,9,0,0,0,0,0,0,0,0,0} ;
+//		int[] nums2 = {2,3,4,6,8,10,12,14,16} ;
+		int[] nums1 = {2,0} ;
+		int[] nums2 = {1} ;
+		merge(nums1, 1, nums2, 1) ;
 		
 		for(int num : nums1){
 			System.out.print(num+" ") ;

@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.sorted.array.remove.duplicates;
+package com.yxy.algorithms.array.sorted.remove.duplicates;
 
 /**
  *  Remove Duplicates from Sorted Array My Submissions Question
@@ -34,28 +34,41 @@ package com.yxy.algorithms.sorted.array.remove.duplicates;
  * 2015/12/28
  */
 
-public class Solution3 {
+public class Solution {
 	
 	public static int removeDuplicates(int[] nums) {
-		int shiftCount = 0;
-        for(int i=0; i<nums.length-1; i++) {
-            if(nums[i]==nums[i+1]) {
-                shiftCount++;
-            } else if (shiftCount!=0) {
-                nums[i+1-shiftCount] = nums[i+1];
-            }
+        if(nums==null || nums.length<=1){
+        	return nums.length ;
         }
-        return nums.length-shiftCount;
+		
+        int p1 = 0 ;
+        int p2 = nums.length-1 ;
+        int curr = 1 ;
+        
+        while(p1!=p2){
+        	if(nums[p1]==nums[curr]){
+        		for(int i=curr ; i<p2; i++){
+        			nums[i] = nums[i+1] ;
+        		}
+        		nums[p2] = -1 ;
+        		if(p1+1==nums.length){
+        			break ;
+        		}
+        		p2-- ;
+        	}else{
+        		p1++ ;
+        		curr++ ;
+        	}
+        	
+        }
+        
+        
+		return p2+1 ;
     }
 
 	public static void main(String[] args) {
 		System.out.println(removeDuplicates(new int[]{1,1,2,2,3,4,4}));
-		System.out.println(removeDuplicates(new int[]{1,1,1,1}));
-		System.out.println(removeDuplicates(new int[]{1,2}));
-		System.out.println(removeDuplicates(new int[]{1,1,2,2,2,3}));
-		System.out.println(removeDuplicates(new int[]{1,2,3}));
-		System.out.println(removeDuplicates(new int[]{1,1,2}));
-		System.out.println(removeDuplicates(new int[]{1,2,2}));
+		System.out.println(removeDuplicates(new int[]{1,1}));
 		System.out.println(removeDuplicates(new int[]{2,2,2}));
 
 	}

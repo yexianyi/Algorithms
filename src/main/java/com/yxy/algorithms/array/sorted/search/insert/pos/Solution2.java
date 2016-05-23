@@ -1,4 +1,4 @@
-package com.yxy.algorithms.sorted.array.search.insert.pos;
+package com.yxy.algorithms.array.sorted.search.insert.pos;
 
 import java.util.Random;
 

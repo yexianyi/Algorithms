@@ -1,4 +1,4 @@
-package com.yxy.algorithms.sorted.array.search.insert.pos;
+package com.yxy.algorithms.array.sorted.search.insert.pos;
 
 /**
  * 35. Search Insert Position My Submissions QuestionEditorial Solution

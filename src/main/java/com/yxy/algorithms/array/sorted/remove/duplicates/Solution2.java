@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.sorted.array.remove.duplicates;
+package com.yxy.algorithms.array.sorted.remove.duplicates;
 
 /**
  *  Remove Duplicates from Sorted Array My Submissions Question
