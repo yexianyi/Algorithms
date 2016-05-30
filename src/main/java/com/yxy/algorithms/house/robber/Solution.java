@@ -29,9 +29,21 @@ package com.yxy.algorithms.house.robber;
  * 2015/12/25
  * Reference:
  * http://www.programcreek.com/2014/03/leetcode-house-robber-java/
+ * https://segmentfault.com/a/1190000003811581
  */
 
 public class Solution {
+	/**
+	 * Basic idea:
+		setup an array dp[] to record the max profit we can get until now. (Does not include current house)
+		There are only 2 possibilities.
+		1.If the thief robbed previous house, then he cannot rob current house, so that the max profit will be 
+		  the value of robbing until previous house.
+		2.If the thief robs current house, then he cannot rob previous one, so that the max profit will be 
+		  the value of previous of previous house he has robbed + the profit in current house.
+	 * @param nums
+	 * @return
+	 */
 
 	public static int rob(int[] nums) {
 		if(nums==null || nums.length==0){
