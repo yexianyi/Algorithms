@@ -13,29 +13,16 @@ package com.yxy.algorithms.bits.bitwise.and.numbers.range;
 
  * @author xianyiye
  * @date 06/02/2016
+ * 
+ * Copy from:
+ * https://leetcode.com/discuss/49088/2-line-solution-with-detailed-explanation
  */
-public class Solution {
+public class Solution2 {
 	
-	//timeout
 	public static int rangeBitwiseAnd(int m, int n) {
-        int inc = 1;
-        int ret = 0 ;
-        int i = 1 ;
-        for(; i<=63 && inc<=n; i++){
-        	boolean containsZero = false ;
-        	for(int num=m; num<=n; num++){
-        		if((num&inc)==0){
-        			containsZero = true ;
-        			break ;
-        		}
-        	}
-        	if(!containsZero){
-        		ret |= inc ;
-        	}
-        	inc <<= 1 ;
-        }
-        
-        return ret ;
+		while(m<n) n = n & (n-1);
+        return n;
+
     }
 	
 	public static void main(String[] args) {
