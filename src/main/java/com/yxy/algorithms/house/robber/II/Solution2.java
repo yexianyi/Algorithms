@@ -1,4 +1,6 @@
 package com.yxy.algorithms.house.robber.II;
+
+import java.util.Arrays;
 /**
  * 213. House Robber II My Submissions QuestionEditorial Solution
 	Total Accepted: 29759 Total Submissions: 95933 Difficulty: Medium
@@ -14,31 +16,26 @@ package com.yxy.algorithms.house.robber.II;
  * Copy from:
  * https://leetcode.com/discuss/36544/simple-ac-solution-in-java-in-o-n-with-explanation
  */
-public class Solution {
+public class Solution2 {
 
-	public int rob(int[] nums) {
-		if (nums.length == 1){
-			return nums[0];
-		}
-		
-		return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));
-	}
+	 public int rob(int[] nums) {
+	        if (nums.length == 0) return 0;
+	        if (nums.length == 1) return nums[0];
+	        if (nums.length == 2) return Math.max(nums[0], nums[1]);
+	        if (nums.length == 3) return Math.max(Math.max(nums[0], nums[1]), nums[2]);
+	        return Math.max(rob1(Arrays.copyOfRange(nums, 1, nums.length)), nums[0] + rob1(Arrays.copyOfRange(nums, 2, nums.length-1)));
+	    }
 
-	private int rob(int[] num, int lo, int hi) {
-		int include = 0, exclude = 0;
-		for (int j = lo; j <= hi; j++) {
-			int i = include, e = exclude;
-			include = e + num[j];
-			exclude = Math.max(e, i);
-		}
-		return Math.max(include, exclude);
-	}
-
-	public static void main(String[] args) {
-		// System.out.println(new Solution().rob(new int[]{1,1,1}));
-//		System.out.println(new Solution().rob(new int[] { 0, 1, 2, 3, 4, 5, 6 }));
-		 System.out.println(new Solution().rob(new int[] { 1, 2, 3, 4, 5, 1,
-		 2, 3, 4, 5 }));
-	}
+	    public int rob1(int[] nums) {
+	        int preno = 0;
+	        int preyes = nums[0];
+	        for (int i = 1; i < nums.length; i++)
+	        {
+	            int tmp = preyes;
+	            preyes = preno + nums[i];
+	            preno = Math.max(preno, tmp);
+	        }
+	        return Math.max(preyes, preno);
+	    }
 
 }
