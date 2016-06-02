@@ -3,7 +3,31 @@ package com.yxy.algorithms.array.subsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+/**
+ * 78. Subsets My Submissions QuestionEditorial Solution
+	Total Accepted: 97074 Total Submissions: 306263 Difficulty: Medium
+	Given a set of distinct integers, nums, return all possible subsets.
+	
+	Note:
+	Elements in a subset must be in non-descending order.
+	The solution set must not contain duplicate subsets.
+	For example,
+	If nums = [1,2,3], a solution is:
+	
+	[
+	  [3],
+	  [1],
+	  [2],
+	  [1,2,3],
+	  [1,3],
+	  [2,3],
+	  [1,2],
+	  []
+	]
 
+ * @author xianyiye
+ * @date 05/25/2016
+ */
 public class Solution {
 
 	public static List<List<Integer>> subsets(int[] nums) {
@@ -37,7 +61,7 @@ public class Solution {
 
 
 	public static void main(String[] args) {
-		 List<List<Integer>> subsets = subsets(new int[]{1,2,3}) ;
+		 List<List<Integer>> subsets = subsets(new int[]{1,2,2}) ;
 //		 List<List<Integer>> subsets = subsets(new int[]{4,1,0}) ;
 		 for(List<Integer> subSet : subsets){
 			 System.out.print("[") ;
