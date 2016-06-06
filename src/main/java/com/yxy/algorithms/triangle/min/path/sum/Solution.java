@@ -17,13 +17,12 @@ public class Solution {
 	
 	
 	private void travelPath(List<List<Integer>> triangle, int rowIdx, int colIdx, int sum){
-		if(colIdx<0 || rowIdx>triangle.size()-1){
+		if(rowIdx>triangle.size()-1){
 			return ;
 		}
 		
 		sum += triangle.get(rowIdx).get(colIdx) ;
 		
-		travelPath(triangle, rowIdx+1, colIdx-1, sum) ;
 		travelPath(triangle, rowIdx+1, colIdx, sum) ;
 		travelPath(triangle, rowIdx+1, colIdx+1, sum) ;
 		
