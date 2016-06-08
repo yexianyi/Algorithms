@@ -1,10 +1,28 @@
 package com.yxy.algorithms.triangle.min.path.sum;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
+/**
+ * 120. Triangle My Submissions QuestionEditorial Solution
+	Total Accepted: 71619 Total Submissions: 234865 Difficulty: Medium
+	Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+	
+	For example, given the following triangle
+	[
+	     [2],
+	    [3,4],
+	   [6,5,7],
+	  [4,1,8,3]
+	]
+	The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+	
+	Note:
+	Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+ * @author xianyiye
+ * @date 06/08/2016
+ * Reference:
+ * http://www.kancloud.cn/kancloud/data-structure-and-algorithm-notes/73066
+ */
 public class Solution3 {
 	
 
