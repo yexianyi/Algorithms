@@ -20,43 +20,48 @@ package com.yxy.algorithms.grid.unique.paths.II;
 	
 	Note: m and n will be at most 100.
  * @author xianyiye
- * @date 06/14/2016
+ * @date 06/21/2016
  * 
  */
-public class Solution {
+public class Solution3 {
 
-	private int count = 0;
-	
-	//timeout
+	//1 ms
 	public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-	        
-		travel(obstacleGrid, 0, 0) ;
+		int[] dp = new int[obstacleGrid[0].length] ;
+		int col=0 ;
+		while(col<obstacleGrid[0].length && obstacleGrid[0][col]==0){
+			dp[col++] = 1 ;
+		}
+		
+		while(col<obstacleGrid[0].length && obstacleGrid[0][col]==1){
+			dp[col++] = 0 ;
+		}
+		
+		for(int i=1; i<obstacleGrid.length; i++){ //row
+			for(int j=0; j<obstacleGrid[0].length; j++){ //col
+				if(obstacleGrid[i][j]==1){
+					dp[j] = 0 ;
+				}else if(j>0){
+					dp[j] = dp[j-1] + dp[j] ;
+				}
+			}
+		}
 	
-		return count ;
+		return dp[dp.length-1] ;
 	}
 	
-	private void travel(int[][] grid, int row, int col){
-		if(row==grid.length-1 && col==grid[0].length-1){
-			count++ ;
-			return ;
-		}
-		
-		if(row<grid.length-1 && grid[row+1][col]!=1){
-			travel(grid, row+1, col) ;
-		}
-		
-		if(col<grid[0].length-1 && grid[row][col+1]!=1){
-			travel(grid, row, col+1) ;
-		}
-		
-	}
+	
+	
 	
 	public static void main(String[] args) {
-		int[][] obstacleGrid = {{0,0,0},
-								{0,1,0},
-								{0,0,0}} ;
 		
-		System.out.println(new Solution().uniquePathsWithObstacles(obstacleGrid)) ;
+//		int[][] obstacleGrid = {{0,0,0},
+//								{0,1,0},
+//								{0,0,0}} ;
+		
+		int[][] obstacleGrid = {{0},{1}} ;
+		
+		System.out.println(new Solution3().uniquePathsWithObstacles(obstacleGrid)) ;
 	}
 
 }

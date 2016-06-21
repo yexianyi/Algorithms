@@ -20,43 +20,41 @@ package com.yxy.algorithms.grid.unique.paths.II;
 	
 	Note: m and n will be at most 100.
  * @author xianyiye
- * @date 06/14/2016
+ * @date 06/21/2016
  * 
+ * Copy from:
+ * https://leetcode.com/discuss/29816/short-java-solution
  */
-public class Solution {
+public class Solution4 {
 
-	private int count = 0;
-	
-	//timeout
+	//1 ms
 	public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-	        
-		travel(obstacleGrid, 0, 0) ;
-	
-		return count ;
+		 int width = obstacleGrid[0].length;
+		    int[] dp = new int[width];
+		    dp[0] = 1;
+		    for (int[] row : obstacleGrid) {
+		        for (int j = 0; j < width; j++) {
+		            if (row[j] == 1)
+		                dp[j] = 0;
+		            else if (j > 0)
+		                dp[j] += dp[j - 1];
+		        }
+		    }
+		    return dp[width - 1];
 	}
 	
-	private void travel(int[][] grid, int row, int col){
-		if(row==grid.length-1 && col==grid[0].length-1){
-			count++ ;
-			return ;
-		}
-		
-		if(row<grid.length-1 && grid[row+1][col]!=1){
-			travel(grid, row+1, col) ;
-		}
-		
-		if(col<grid[0].length-1 && grid[row][col+1]!=1){
-			travel(grid, row, col+1) ;
-		}
-		
-	}
+	
+	
 	
 	public static void main(String[] args) {
-		int[][] obstacleGrid = {{0,0,0},
-								{0,1,0},
-								{0,0,0}} ;
 		
-		System.out.println(new Solution().uniquePathsWithObstacles(obstacleGrid)) ;
+//		int[][] obstacleGrid = {{0,0,0},
+//								{0,1,0},
+//								{0,0,0}} ;
+		
+		int[][] obstacleGrid = {{0},{1}} ;
+		
+		System.out.println(new Solution4().uniquePathsWithObstacles(obstacleGrid)) ;
 	}
 
 }
