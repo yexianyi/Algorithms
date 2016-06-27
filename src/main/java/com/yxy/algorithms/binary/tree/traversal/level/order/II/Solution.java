@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.binary.tree.traversal.II.level.order;
+package com.yxy.algorithms.binary.tree.traversal.level.order.II;
 
 /**
  * 	107. Binary Tree Level Order Traversal II My Submissions Question
