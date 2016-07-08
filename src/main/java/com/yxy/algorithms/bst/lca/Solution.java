@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.binary.tree.lca;
+package com.yxy.algorithms.bst.lca;
 
 import com.yxy.algorithms.binary.tree.TreeNode;
 
