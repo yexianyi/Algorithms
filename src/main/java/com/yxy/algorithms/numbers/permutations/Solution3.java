@@ -40,8 +40,8 @@ public class Solution3 {
 	     //Insert elements in the array by increasing index
 	      for(int j=0;j<=i;j++){
 	          newPerm.add(j,nums[i]); //This is the magic place. 
-	          						  //Instead of remove each of candidates from Nums, 
-	          						  //we can inject each of candidate into existing number with different position.
+	          						  //Instead of removing each of candidates from Nums, 
+	          						  //we can inject each of candidate into existing numbers with different positions.
 	          backTrack(newPerm,i+1,nums);
 	          newPerm.remove(j);
 	      }
