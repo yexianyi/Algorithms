@@ -110,14 +110,14 @@ public final class BinaryTreeUtil {
 	}
 	
 
-//	public static void main(String[] args) {
-//		Integer[] nodes = {0,1,2,3,4,5,6} ;
-//		TreeNode root = create(nodes, TreeNode.class) ;
-//		print(root);
-//		
-//		TreeLinkNode root2 = create(nodes, TreeLinkNode.class) ;
-//		print(root2);
-//
-//	}
+	public static void main(String[] args) {
+		Integer[] nodes = {0,1,2,3,4,5,6} ;
+		TreeNode root = create(nodes, TreeNode.class) ;
+		print(root);
+		
+		TreeLinkNode root2 = create(nodes, TreeLinkNode.class) ;
+		print(root2);
+
+	}
 
 }
