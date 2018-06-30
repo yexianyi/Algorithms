@@ -54,6 +54,7 @@ public class Solution4 {
     }
 
 	public static void main(String[] args) {
+		System.out.println(containsNearbyDuplicate(new int[]{1,2,3,4,2,3}, 3));
 		System.out.println(containsNearbyDuplicate(new int[]{-1,-1}, 1));
 		System.out.println(containsNearbyDuplicate(new int[]{1,2,1}, 0));
 		System.out.println(containsNearbyDuplicate(new int[]{1,2,1}, 1));

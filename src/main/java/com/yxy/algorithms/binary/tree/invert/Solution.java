@@ -38,7 +38,9 @@ import com.yxy.algorithms.binary.tree.TreeNode;
 	  2     7
 	 / \   / \
 	1   3 6   9
-	to      4
+	
+	to      
+		 4
 	   /   \
 	  7     2
 	 / \   / \

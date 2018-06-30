@@ -37,6 +37,7 @@ package com.yxy.algorithms.add.digits;
 
 public class Solution {
 	
+	//E.g, 13=1+3=4 == 13%9
 	public int addDigits(int num) {
 		
 		return num>0 && num%9 == 0 ? 9 : num%9;

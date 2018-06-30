@@ -42,19 +42,19 @@ public class Solution {
 		}
 
 		// initialization
-		ListNode previousNode = null;
-		ListNode nextNode = null;
+		ListNode pre = null;
+		ListNode next = null;
 
 		while (head != null) {
 			// save the next node
-			nextNode = head.next;
+			next = head.next;
 			// update the value of "next"
-			head.next = previousNode;
+			head.next = pre;
 			// shift the pointers
-			previousNode = head;
-			head = nextNode;
+			pre = head;
+			head = next;
 		}
-		return previousNode;
+		return pre;
 
 	}
 
