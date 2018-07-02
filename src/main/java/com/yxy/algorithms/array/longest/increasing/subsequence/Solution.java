@@ -12,41 +12,35 @@ package com.yxy.algorithms.array.longest.increasing.subsequence;
 	Your algorithm should run in O(n2) complexity.
 	
 	Follow up: Could you improve it to O(n log n) time complexity?
- * @author xianyiye
- * @date 04/29/2016
+	
+ * @update 07/01/2018
  */
 public class Solution {
 	
-	private int max = 0 ;
-	
-	//!timeout
 	public int lengthOfLIS(int[] nums) {
-        for(int i=0; i<nums.length; i++){
-        	travel(0,nums, i, i) ;
-        }
-		return max ;
+        return travel(nums, Integer.MIN_VALUE, 0);
     }
-	
-	private void travel(int currSize, int[] nums, int target, int start) {
-		if(start==nums.length){
-			max = Math.max(max, currSize) ;
-			return ;
-		}
-		
-		for(int i=start; i<nums.length; i++){
-			if(nums[i]>=nums[target]){
-				currSize++ ;
-				travel(currSize, nums, i, i+1) ;
-				currSize-- ;
-			}
-		}
-	}
+
+    public int travel(int[] nums, int prev, int curr) {
+        if (curr == nums.length) {
+            return 0;
+        }
+        
+        int taken = 0;
+        if (nums[curr] > prev) {
+            taken = 1 + travel(nums, nums[curr], curr + 1);
+        }
+        
+        int nottaken = travel(nums, prev, curr + 1);
+        
+        return Math.max(taken, nottaken);
+    }
 	
 	
 
 	public static void main(String[] args) {
 		System.out.println(new Solution().lengthOfLIS(new int[]{10,9,2,5,3,4}));
-		System.out.println(new Solution().lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18}));
+		System.out.println(new Solution().lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
 
 	}
 

@@ -1,5 +1,7 @@
 package com.yxy.algorithms.array.longest.increasing.subsequence;
 
+import java.util.Arrays;
+
 /**
  * 300. Longest Increasing Subsequence   My Submissions QuestionEditorial Solution
 	Total Accepted: 26531 Total Submissions: 77383 Difficulty: Medium
@@ -44,6 +46,23 @@ public class Solution3 {
     
 	}
 	
+	
+	public int lengthOfLIS2(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+	
 
 	private int binarySearch(int[] dp, int len, int val) {
         int left = 0;
@@ -68,6 +87,10 @@ public class Solution3 {
 
 
 	public static void main(String[] args) {
+		int[] array = new int[] {1,3,5,7} ;
+		System.out.println(Arrays.binarySearch(array, 0, array.length, 2));
+		
+		
 //		System.out.println(new Solution2().lengthOfLIS(new int[]{2,2}));
 //		System.out.println(new Solution3().lengthOfLIS(new int[]{1,3,6,7,9,4,10,5,6}));
 		System.out.println(new Solution3().lengthOfLIS(new int[]{10,9,2,5,3,4}));
