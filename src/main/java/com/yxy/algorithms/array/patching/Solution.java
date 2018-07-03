@@ -3,7 +3,9 @@ package com.yxy.algorithms.array.patching;
 /**
  * 330. Patching Array My Submissions QuestionEditorial Solution
 	Total Accepted: 11136 Total Submissions: 37267 Difficulty: Medium
-	Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.
+	Given a sorted positive integer array nums and an integer n, 
+	add/patch elements to the array such that any number in range [1, n] inclusive 
+	can be formed by the sum of some elements in the array. Return the minimum number of patches required.
 	
 	Example 1:
 	nums = [1, 3], n = 6
@@ -27,6 +29,7 @@ package com.yxy.algorithms.array.patching;
  * @date 06/12/2016
  *	Reference:
  *	http://www.cnblogs.com/grandyang/p/5165821.html
+ *	https://blog.csdn.net/yzhang6_10/article/details/51590616
  */
 public class Solution {
 	
@@ -40,6 +43,8 @@ public class Solution {
 				sum += nums[i++] ;
 			}else{
 //				System.out.println("Adding "+sum);
+				//The tricky part is to understand that if we have covered range [1 -> num], 
+				//then adding num + 1 can extend the range to [1..2*num + 1].
 				sum += sum ;
 				patches++ ;
 			}

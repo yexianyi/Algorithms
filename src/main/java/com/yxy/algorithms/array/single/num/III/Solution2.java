@@ -35,6 +35,7 @@ package com.yxy.algorithms.array.single.num.III;
  * Reference:
  * https://leetcode.com/discuss/60408/sharing-explanation-of-the-solution
  * https://leetcode.com/discuss/71567/java-easy-version-to-understand
+ * https://segmentfault.com/a/1190000004886431
  */
 public class Solution2 {
 	

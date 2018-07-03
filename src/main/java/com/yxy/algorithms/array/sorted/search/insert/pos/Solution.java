@@ -3,7 +3,8 @@ package com.yxy.algorithms.array.sorted.search.insert.pos;
 /**
  * 35. Search Insert Position My Submissions QuestionEditorial Solution
 	Total Accepted: 99738 Total Submissions: 268948 Difficulty: Medium
-	Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+	Given a sorted array and a target value, return the index if the target is found. 
+	If not, return the index where it would be if it were inserted in order.
 	
 	You may assume no duplicates in the array.
 	

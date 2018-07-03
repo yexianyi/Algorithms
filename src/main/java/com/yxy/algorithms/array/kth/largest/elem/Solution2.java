@@ -5,16 +5,14 @@ import java.util.NavigableMap;
 import java.util.TreeMap;
 /**
  * 
-	215. Kth Largest Element in an Array
+		215. Kth Largest Element in an Array
 	    My Submissions 
 	Question Editorial Solution  
 	
 	Total Accepted: 56474 Total Submissions: 168404 Difficulty: Medium 
 	
-	
-	
-	
-	Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. 
+	Find the kth largest element in an unsorted array. 
+	Note that it is the kth largest element in the sorted order, not the kth distinct element. 
 	
 	For example,
 	 Given [3,2,1,5,6,4] and k = 2, return 5. 

@@ -27,7 +27,10 @@ package com.yxy.algorithms.array.single.num.I;
 	Note:
 	Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  * @author xianyiye
- * 2016/1/22
+ * @Date 2016/1/22
+ * 
+ * Reference:
+ * https://leetcode.com/problems/single-number/solution/
  */
 
 public class Solution4 {

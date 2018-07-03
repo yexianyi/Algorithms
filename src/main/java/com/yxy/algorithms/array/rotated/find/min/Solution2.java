@@ -40,7 +40,7 @@ public class Solution2 {
     	   if(mid>0 && nums[mid]<nums[mid-1]){
     		   return nums[mid] ;
     	   }else{
-    		   if(nums[mid]>=nums[start] && nums[mid]>nums[end]){// left
+    		   if(nums[mid]>=nums[start] && nums[mid]>nums[end]){// right
     			   start = mid + 1;
     		   }else{
     			   end = mid - 1 ; 

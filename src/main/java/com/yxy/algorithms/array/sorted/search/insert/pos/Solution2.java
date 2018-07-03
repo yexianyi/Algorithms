@@ -1,7 +1,5 @@
 package com.yxy.algorithms.array.sorted.search.insert.pos;
 
-import java.util.Random;
-
 /**
  * 35. Search Insert Position My Submissions QuestionEditorial Solution Total
  * Accepted: 99738 Total Submissions: 268948 Difficulty: Medium Given a sorted

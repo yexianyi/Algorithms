@@ -35,6 +35,7 @@ package com.yxy.algorithms.array.product.except.self;
 
 public class Solution {
 	
+	//https://www.cnblogs.com/grandyang/p/4650187.html
 	public static int[] productExceptSelf(int[] nums) {
         int[] array = new int[nums.length] ;
         int p = 1 ;

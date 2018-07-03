@@ -21,6 +21,7 @@ package com.yxy.algorithms.array.sort.color;
  * @date 04/27/2016
  * Reference:
  * https://leetcode.com/discuss/85963/extentions-more-clear-explanation-than-previous-posts
+ * https://www.cnblogs.com/jimmycheng/p/7231963.html
  */
 
 public class Solution2 {
