@@ -36,31 +36,24 @@ import com.yxy.algorithms.binary.tree.util.BinaryTreeUtil;
  * Reference:
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
  */
-public class Solution2 {
+public class Solution3 {
 	
+	TreeNode prev = null ;
 	
 	public void flatten(TreeNode root) {
-		TreeNode node = root;
-		while (node != null) {
-			TreeNode left = node.left;
-			TreeNode right = node.right;
-			if (left != null) {
-				TreeNode temp = left;
-				while (temp.right != null) {
-					temp = temp.right;
-				}
-				temp.right = right;
-				node.right = left;
-				node.left = null;
-			}
-			node = node.right;
-		}
+		if (root == null)
+	        return;
+	    flatten(root.right);
+	    flatten(root.left);
+	    root.right = prev;
+	    root.left = null;
+	    prev = root;
     }
 	
 
 	public static void main(String[] args) {
 		TreeNode root = BinaryTreeUtil.create(new Integer[]{1,2,5,3,4,null,6}, TreeNode.class) ;
-		new Solution2().flatten(root) ;
+		new Solution3().flatten(root) ;
 		
 		while(root!=null){
 			System.out.print(root.val+" ") ;

@@ -29,7 +29,8 @@ import com.yxy.algorithms.linked.list.ListNode;
 	
 	Total Accepted: 4059 Total Submissions: 10475 Difficulty: Easy 
 	
-	Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+	Given a singly linked list, group all odd nodes together followed by the even nodes. 
+	Please note here we are talking about the node number and not the value in the nodes.
 	You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
 	
 	
@@ -52,21 +53,21 @@ public class Solution {
 			return head ;
 		}
 		
-		ListNode p_odd = head ;
-		ListNode p_even = p_odd.next ;
+		ListNode p1 = head ; //odd pointer
+		ListNode p2 = p1.next ; //even pointer
 		ListNode evenNode = new ListNode(Integer.MAX_VALUE) ;
-		evenNode.next = p_even ;
+		evenNode.next = p2 ;
 		
-		while(p_even!=null){
-			p_odd.next = p_even.next ;
-			if(p_even.next!=null){
-				p_odd = p_even.next ;
-				p_even.next = p_odd.next ;
+		while(p2!=null){
+			p1.next = p2.next ;
+			if(p2.next!=null){
+				p1 = p2.next ;
+				p2.next = p1.next ;
 			}
-			p_even = p_odd.next ;
+			p2 = p1.next ;
 		}
 		
-		p_odd.next = evenNode.next ;
+		p1.next = evenNode.next ;
 		
         return head ;
     }

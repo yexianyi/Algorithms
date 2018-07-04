@@ -3,7 +3,8 @@ package com.yxy.algorithms.binary.tree.verify.preorder.serialization;
 /**
  *  331. Verify Preorder Serialization of a Binary Tree My Submissions QuestionEditorial Solution
 	Total Accepted: 12594 Total Submissions: 39624 Difficulty: Medium
-	One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #.
+	One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, 
+	we record the node's value. If it is a null node, we record using a sentinel value such as #.
 	
 	     _9_
 	    /   \
@@ -53,6 +54,18 @@ public class Solution2 {
 		
 		return degree == 0 ;
     }
+	
+	//https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/discuss/78551/7-lines-Easy-Java-Solution?page=2
+	//https://www.youtube.com/watch?v=_mbnPPHJmTQ
+	public boolean isValidSerialization2(String preorder) {
+	    String[] nodes = preorder.split(",");
+	    int diff = 1;
+	    for (String node: nodes) {
+	        if (--diff < 0) return false;
+	        if (!node.equals("#")) diff += 2;
+	    }
+	    return diff == 0;
+	}
 	
 
 	public static void main(String[] args) {

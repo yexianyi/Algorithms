@@ -29,6 +29,7 @@ import java.util.List;
  * @date 05/25/2016
  * Copy from:
  * https://leetcode.com/discuss/55492/simple-java-solution-using-bit-operations
+ * https://leetcode.com/problems/subsets/discuss/143671/JAVA-Simple-Bit-Map-Solution.-Runtime-(2-ms)-beats-100-solutions
  */
 public class Solution3 {
 

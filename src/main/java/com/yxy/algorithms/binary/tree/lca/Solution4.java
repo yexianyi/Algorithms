@@ -1,6 +1,7 @@
 package com.yxy.algorithms.binary.tree.lca;
 
 import com.yxy.algorithms.binary.tree.TreeNode;
+import com.yxy.algorithms.binary.tree.util.BinaryTreeUtil;
 /**
  * 236. Lowest Common Ancestor of a Binary Tree  QuestionEditorial Solution  My Submissions
 	Total Accepted: 48657
@@ -29,15 +30,30 @@ public class Solution4 {
 
 	//beats 32.74%
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		if (root == null || root == p || root == q)
-			return root;
-		TreeNode left = lowestCommonAncestor(root.left, p, q);
-		TreeNode right = lowestCommonAncestor(root.right, p, q);
-		return left == null ? right : right == null ? left : root;
+		//base case
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        //result
+        if(left == null) {
+            return right;
+        }
+        else if(right == null) {
+            return left;
+        }
+        else { //both left and right are not null, we found our result
+            return root;
+        }
 	}
 
 	public static void main(String[] args) {
-
+		TreeNode root = BinaryTreeUtil.create(new Integer[]{3,5,1,6,2,0,8,null, null, 7, 4, null, null, null, null}, TreeNode.class) ;
+		BinaryTreeUtil.print(root);
+		System.out.println(lowestCommonAncestor(root, root.left.right.left, root.left.right.right).val);
 	}
 
 }

@@ -41,16 +41,16 @@ import com.yxy.algorithms.linked.list.ListNode;
 public class Solution2 {
 	
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
-	    ListNode voidHead = new ListNode(-1);
-	    voidHead.next = head;
-	    ListNode p1 = voidHead;
-	    ListNode p2 = voidHead;
+	    ListNode supperHead = new ListNode(-1);
+	    supperHead.next = head;
+	    ListNode p1 = supperHead;
+	    ListNode p2 = supperHead;
 	    while (p1.next!=null){
 	        p1=p1.next;
 	        if (n--<=0)p2=p2.next;
 	    }
 	    if (p2.next!=null) p2.next=p2.next.next;
-	    return voidHead.next;
+	    return supperHead.next;
 	}
 	
 	

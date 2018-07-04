@@ -1,9 +1,10 @@
 package com.yxy.algorithms.binary.tree.traversal.level.order.zigzag;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 import com.yxy.algorithms.binary.tree.TreeNode;
 import com.yxy.algorithms.binary.tree.util.BinaryTreeUtil;
@@ -33,18 +34,18 @@ import com.yxy.algorithms.binary.tree.util.BinaryTreeUtil;
 public class Solution {
 	
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		Deque<TreeNode> queue = new ArrayDeque<TreeNode>() ;
+		Queue<TreeNode> queue = new LinkedList<TreeNode>() ;
 		if(root!=null) {
 			queue.add(root) ;
 		}
 		
 		boolean fromRight = true ;
 		List<List<Integer>> ret = new ArrayList<List<Integer>>() ;
-		Deque<TreeNode> tempNodes = new ArrayDeque<TreeNode>() ;
+		Stack<TreeNode> tempNodes = new Stack<TreeNode>() ;
 		
 		while(!queue.isEmpty()){
 			while(!queue.isEmpty()){
-				tempNodes.offer(queue.poll()) ;
+				tempNodes.push(queue.poll()) ;
 			}
 			
 			List<Integer> list = new ArrayList<Integer>() ;
@@ -56,7 +57,7 @@ public class Solution {
 			}
 			
 			while(!tempNodes.isEmpty()){
-				TreeNode node = tempNodes.pollLast() ;
+				TreeNode node = tempNodes.pop() ;
 				if(fromRight){
 					if(node.right!=null)
 						queue.offer(node.right);

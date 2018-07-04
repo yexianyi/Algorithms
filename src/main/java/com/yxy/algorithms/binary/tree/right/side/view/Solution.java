@@ -8,7 +8,8 @@ import com.yxy.algorithms.binary.tree.util.BinaryTreeUtil;
 /**
  * 199. Binary Tree Right Side View   My Submissions QuestionEditorial Solution
 	Total Accepted: 40831 Total Submissions: 118551 Difficulty: Medium
-	Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+	Given a binary tree, imagine yourself standing on the right side of it, 
+	return the values of the nodes you can see ordered from top to bottom.
 	
 	For example:
 	Given the following binary tree,

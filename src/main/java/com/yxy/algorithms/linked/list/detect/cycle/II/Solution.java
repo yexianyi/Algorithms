@@ -21,22 +21,22 @@ public class Solution {
 		if(head==null||head.next==null)
             return null;
 		
-        ListNode p1 = head ;
-        ListNode p2 = head ;
+        ListNode slow = head ;
+        ListNode fast = head ;
         
         
-        while(p2!=null && p2.next!=null){
-    		p1 = p1.next ;
-    		p2 = p2.next.next ;
+        while(fast!=null && fast.next!=null){
+    		slow = slow.next ;
+    		fast = fast.next.next ;
     		
-    		if(p1==p2){
-    			p1 = head ;
-            	while(p1!=p2){ //To use this solution, the start position of the fast pointer MUST start from HEAD node.
-            		p1 = p1.next ;
-            		p2 = p2.next ;
+    		if(slow==fast){
+    			slow = head ;
+            	while(slow!=fast){ //To use this solution, the start position of the fast pointer MUST start from HEAD node.
+            		slow = slow.next ;
+            		fast = fast.next ;
             	}
             	
-            	return p1 ;
+            	return slow ;
     		}
         }
         

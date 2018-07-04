@@ -16,8 +16,7 @@ public class Solution3 {
 	
 	//9 ms
 	public static ListNode insertionSortList(ListNode head) {
-		if (head == null || head.next == null)
-	    {
+		if (head == null || head.next == null) {
 	        return head;
 	    }
 
@@ -25,8 +24,7 @@ public class Solution3 {
 	    head = head.next;
 	    sortedHead.next = null;
 
-	    while (head != null)
-	    {
+	    while (head != null) {
 	        ListNode temp = head;
 	        head = head.next;
 	        temp.next = null;
