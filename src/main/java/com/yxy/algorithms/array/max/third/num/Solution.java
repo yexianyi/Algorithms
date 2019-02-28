@@ -1,4 +1,4 @@
-package com.yxy.algorithms.string.max.third.num;
+package com.yxy.algorithms.array.max.third.num;
 
 /**
  * 414. Third Maximum Number
