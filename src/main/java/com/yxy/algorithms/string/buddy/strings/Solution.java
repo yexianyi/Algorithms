@@ -51,7 +51,6 @@ public class Solution {
 
         // remember diff pos in two string
         List<Integer> diffPos = new ArrayList<>(2);
-        int j = 0;
 
         for (int i = 0; i < A.length(); i++) {
             if (A.charAt(i) != B.charAt(i)) {
