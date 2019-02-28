@@ -1,7 +1,9 @@
 package com.yxy.algorithms.array.k.diff.pairs;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,52 +32,54 @@ import java.util.Set;
  * 2019/02/28
  *
  */
-public class Solution {
+public class Solution2 {
 
     public static int findPairs(int[] nums, int k) {
-        Set<Pair> set = new HashSet<>() ;
+    	if (nums == null || nums.length == 0 || k < 0)   return 0;
+    	
+    	Set<Integer> set = new HashSet<>(nums.length/2) ;
         Arrays.sort(nums);
         
-        for(int i=0; i<nums.length; i++) {
-            for(int j=i+1 ; j<nums.length; j++) {
-                if(Math.abs(nums[i] - nums[j]) == k) {
-                    set.add(new Pair(nums[i], nums[j])) ;
-                }
-            }
+        for(int n : nums) {
+            set.add(n) ;
         }
         
-        return set.size() ;
+        int count = 0;
+        if(k==0) {
+        	Map<Integer, Integer> map = new HashMap<>(set.size()) ;
+        	for(int n : nums) {
+        		if(!map.containsKey(n)) {
+        			map.put(n, 1) ;
+        		}else {
+        			map.put(n, map.get(n) + 1) ;
+        		}
+        	}
+        	
+        	return (int) map.values().stream().filter(val -> val >= 2).count() ;
+        	
+        }
+        
+        Integer curr = null ;
+        for(int i=0; i<nums.length; i++) {
+        	if(curr != null && curr == nums[i]) {
+        		continue ;
+        	} else {
+        		curr = nums[i] ;
+        	}
+        	
+        	if(set.contains(nums[i] + k)) {
+        		count++ ;
+        	} 
+        }
+        
+        return count ;
     }
     
-    static class Pair{
-        int left ;
-        int right ;
-        
-        public Pair(int l, int r) {
-            left = l;
-            right = r ;
-        }
-
-        @Override
-        public int hashCode() {
-            return 0;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            Pair p = (Pair) obj ;
-            if((this.left == p.left && this.right == p.right ) 
-                    ||(this.left == p.right && this.right == p.left ) ) {
-                return true ;
-            }
-            return false;
-        }
-        
-        
-    }
-
     public static void main(String[] args) {
-        System.out.println(findPairs(new int[] {3, 1, 4, 1, 5}, 2));
+    	System.out.println(findPairs(new int[] {1, 1, 1, 1, 1}, 0)); // 1
+    	System.out.println(findPairs(new int[] {1, 2, 3, 4, 5}, -1)); // 0
+    	System.out.println(findPairs(new int[] {3, 1, 4, 1, 5}, 0)); // 1
+        System.out.println(findPairs(new int[] {3, 1, 4, 1, 5}, 2)); // 2
 
     }
 
