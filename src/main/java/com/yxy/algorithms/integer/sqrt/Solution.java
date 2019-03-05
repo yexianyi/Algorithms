@@ -37,19 +37,19 @@ public class Solution {
      * @return
      */
     public static int mySqrt(int x) {
-        int i = 0;
-        int j = x / 2 + 1;
+        long i = 0;
+        long j = x / 2 + 1;
         while (i <= j) {
-            int mid = (i + j) / 2;
-            int sq = mid * mid;
+            long mid = (i + j) / 2;
+            long sq = mid * mid;
             if (sq == x)
-                return mid;
+                return (int) mid;
             else if (sq < x)
                 i = mid + 1;
             else
                 j = mid - 1;
         }
-        return j;
+        return (int) j;
     }
 
     public static void main(String[] args) {
