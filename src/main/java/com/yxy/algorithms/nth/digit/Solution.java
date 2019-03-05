@@ -29,8 +29,6 @@ import java.util.Stack;
  * @author yexianyi
  * 2019/03/04
  * 
- *  Copy from:
- *  https://leetcode.com/problems/nth-digit/discuss/170608/Java-Solution-with-Explanation-and-Example
  */
 
 public class Solution {
