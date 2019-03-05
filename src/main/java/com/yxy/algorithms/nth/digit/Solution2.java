@@ -1,7 +1,5 @@
 package com.yxy.algorithms.nth.digit;
 
-import java.util.Stack;
-
 /**
  * 400. Nth Digit
     Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...
@@ -33,31 +31,23 @@ import java.util.Stack;
  *  https://leetcode.com/problems/nth-digit/discuss/170608/Java-Solution-with-Explanation-and-Example
  */
 
-public class Solution {
+public class Solution2 {
 
-    // Time Limit Exceeded
     public static int findNthDigit(int n) {
-        Stack<Integer> stack = new Stack<>();
-        int counter = 0;
-
-        for (int num = 1; num <= Integer.MAX_VALUE; num++) {
-            int copy = num;
-            while (copy > 0) {
-                int remain = copy % 10;
-                copy = copy / 10;
-                stack.push(remain);
-            }
-
-            while (!stack.isEmpty()) {
-                if (++counter == n) {
-                    return stack.pop();
-                }
-
-                stack.pop();
-            }
+        long digitAmount = 9;
+        int start = 1;
+        int length = 1;
+        
+        while (n > length * digitAmount) {
+            n = (int) (n - length * digitAmount);
+            digitAmount = digitAmount * 10;
+            start = start * 10;
+            ++length;
         }
-
-        return -1;
+        
+        int offset = (n - 1) / length;
+        start += offset;
+        return ((int) Integer.toString(start).charAt((n - 1) % length) - (int) '0');
     }
 
     public static void main(String[] args) {
