@@ -1,4 +1,4 @@
-package com.yxy.algorithms.integer.power.four;
+package com.yxy.algorithms.integer.power.of.four;
 
 /**
  * 342. Power of Four 
