@@ -1,4 +1,4 @@
-package com.yxy.algorithms.string.longest.substring.without.repeating.chars;
+package com.yxy.algorithms.string.longest.substr.without.repeating.chars;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-package com.yxy.algorithms.string.longest.common.prefix;
+package com.yxy.algorithms.string.longest.comm.prefix;
 
 /**
  * 14. Longest Common Prefix My Submissions Question
