@@ -1,4 +1,4 @@
-package com.yxy.algorithms.word.ladder;
+package com.yxy.algorithms.array.word.ladder;
 
 import java.util.ArrayList;
 import java.util.List;
