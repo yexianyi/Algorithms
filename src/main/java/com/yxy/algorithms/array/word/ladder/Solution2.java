@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+import javafx.util.Pair;
 /**
  * 127. Word Ladder
     Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
@@ -43,7 +43,7 @@ import java.util.Queue;
  * @author yexianyi
  * 2019/08/16
  */
-import javafx.util.Pair;
+
 
 class Solution2 {
 	public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
