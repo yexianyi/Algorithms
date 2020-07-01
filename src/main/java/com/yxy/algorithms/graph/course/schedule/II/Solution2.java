@@ -1,9 +1,11 @@
 package com.yxy.algorithms.graph.course.schedule.II;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * 210. Course Schedule II
@@ -36,82 +38,67 @@ You may assume that there are no duplicate edges in the input prerequisites.
  * @author Ye Xianyi
  * 2020/07/01
  * 
+ * Reference:
+ * https://leetcode.com/problems/course-schedule-ii/solution/
+ * 
  */
-public class Solution {
+public class Solution2 {
 
 	public static int[] findOrder(int numCourses, int[][] prerequisites) {
-		if(prerequisites.length == 0) {
-			int[] order = new int[numCourses] ;
-			for(int i=0; i<order.length ; i++) {
-				order[i] = i ;
-			}
-			
-			return order ;
-		}
+		Queue<Integer> queue = new LinkedList<>() ; // store all Zero in-degree nodes
+		Map<Integer, List<Integer>> adjList = new HashMap<>() ; // record IN node for each node
+		int[] inDegrees = new int[numCourses] ;
+		int[] res = new int[numCourses] ;
 		
-		boolean[][] matrix = new boolean[numCourses][numCourses] ;
-		// init matrix
 		for(int i=0; i<prerequisites.length; i++) {
-			int course = prerequisites[i][0] ;
-			int prereq = prerequisites[i][1] ;
-			matrix[course][prereq] = true ;
+		    int source = prerequisites[i][0] ;
+		    int pre = prerequisites[i][1] ;
+		    List<Integer> list = adjList.getOrDefault(pre, new ArrayList<>()) ;
+		    list.add(source) ;
+		    adjList.put(pre, list) ;
+		    
+		    inDegrees[source]++ ;
 		}
 		
-		for(int i=0; i<matrix.length; i++) {
-			matrix[i][i] = true ;
-		}
-		
-		// locate start course
-		int start = -1 ;
-		for(int i=0; i<matrix.length; i++) {
-			boolean hasPreCourse = false ;
-			for(int j=0; j<matrix.length; j++) {
-				if(matrix[i][j] && i!=j) {
-					hasPreCourse = true ;
-					break ;
-				}
-			}
-			
-			if(!hasPreCourse) {
-				start = i ;
-			}
-		}
-		
-		if(start == -1) { // has circuit, so impossible
-			return new int[0] ;
-		}
-		
-		Set<Integer> set = new HashSet<>() ;
-		Set<Integer> temp = new HashSet<>() ;
-		set.add(start) ;
-		List<Integer> orderList = new ArrayList<>(numCourses) ;
-		
-		while(!set.isEmpty()) {
-			int studyCourse = set.iterator().next() ;
-			set.remove(studyCourse) ;
-			orderList.add(studyCourse) ;
-			temp.add(studyCourse) ;
-			
-			for(int i=0; i<matrix[studyCourse].length; i++) {
-				if(matrix[i][studyCourse] && i!=studyCourse) {
-					set.add(i) ;
-				}
-			}
-		}
-		
+		// pull all zero in-degree nodes to the queue
 		for(int i=0; i<numCourses; i++) {
-			if(!temp.contains(i)) {
-				orderList.add(i) ;
-			}
+		    if(inDegrees[i] == 0) {
+		        queue.add(i) ;
+		    }
 		}
-		return orderList.stream().mapToInt(Integer::valueOf).toArray();
+		
+		// pop the node from stack until it is empty
+		int resPos = 0;
+		while(!queue.isEmpty()) {
+		    int currCourse = queue.poll() ;
+		    res[resPos++] = currCourse ;
+		    // assume currCourse is learned, 
+		    // so the IN Degree of each course conducted by it should be reduce 1.
+		    if(adjList.containsKey(currCourse)) {
+		        for(int course : adjList.get(currCourse)) { 
+		            inDegrees[course] -- ;
+		            
+		            if(inDegrees[course] == 0) {
+		                queue.add(course) ;
+		            }
+		        }
+		    }
+		}
+		
+		
+		if(resPos == numCourses) {
+		    return res ;
+		}
+		
+		return new int[0];
+		
 	}
 
 	public static void main(String[] args) {
-//		int[] result = findOrder(4, new int[][]{{1,0},{2,0},{3,1},{3,2}}) ;
+		int[] result = findOrder(4, new int[][]{{1,0},{2,0},{3,1},{3,2}}) ;
 //		int[] result = findOrder(2, new int[][]{{1,0}}) ;
 //		int[] result = findOrder(2, new int[][]{}) ;
-		int[] result = findOrder(3, new int[][]{{1,0}}) ;
+//		int[] result = findOrder(3, new int[][]{{1,0}}) ;
 		for(int i=0; i<result.length; i++) {
 			System.out.print(result[i] + " ") ;
 		}
