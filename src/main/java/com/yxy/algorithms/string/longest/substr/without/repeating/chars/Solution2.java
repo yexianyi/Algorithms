@@ -51,9 +51,11 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("abcdeccccghijklm"));
         System.out.println(lengthOfLongestSubstring("abcaaabcbb"));
         System.out.println(lengthOfLongestSubstring("bbbbb"));
         System.out.println(lengthOfLongestSubstring("pwwkew"));
+        
     }
 
 }
