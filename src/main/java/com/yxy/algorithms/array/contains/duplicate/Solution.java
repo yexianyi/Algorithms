@@ -40,7 +40,7 @@ package com.yxy.algorithms.array.contains.duplicate;
 	Input: [1,1,1,3,3,4,3,2,4,2]
 	Output: true
 
- * @author Administrator
+ * @author Ye Xianyi
  *	2015/12/19
  */
 
