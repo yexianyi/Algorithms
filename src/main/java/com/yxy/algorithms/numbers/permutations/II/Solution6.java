@@ -65,7 +65,7 @@ public class Solution6 {
 	
 
 	public static void main(String[] args) {
-		List<List<Integer>> ret = permuteUnique(new int[]{1,1,1,2}) ;
+		List<List<Integer>> ret = permuteUnique(new int[]{1,1,1,1,2,2}) ;
 		for(List<Integer> list : ret){
 			for(int num : list){
 				System.out.print(num+" ");
